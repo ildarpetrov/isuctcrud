@@ -1,0 +1,44 @@
+{% include "layouts/header.html" %}
+    <div class="container mt-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <h3>{{ title }}</h3>
+            <a class="btn btn-success" href="/book/create">Создать новую книгу</a>
+        </div>
+        <table class="table table-bordered mt-3">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">ISBN</th>
+              <th scope="col">Название&nbsp; книги</th>
+              <th scope="col">Автор</th>
+              <th scope="col">Кол-во&nbsp; страниц</th>
+              <th scope="col">Год создания</th>
+              <th scope="col">Дата добавления</th>
+              <th scope="col">Дополнительно</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in books %}
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.isbn }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.author }}</td>
+                  <td>{{ item.pages }}</td>
+                  <td>{{ item.year }}</td>
+                  <td>{{ item.created_at }}</td>
+                  <td>
+                      <div class="d-flex align-center justify-content-between">
+                          <a class="btn btn-info btn-sm" href="/book/{{ item.id }}">Посмотреть</a>
+                          <a class="btn btn-success btn-sm" href="/book/update/{{ item.id }}">Изменить</a>
+                          <form action="/book/delete/{{ item.id }}" method="POST">
+                              <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                          </form>
+                      </div>
+                  </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+{% include "layouts/footer.html" %}

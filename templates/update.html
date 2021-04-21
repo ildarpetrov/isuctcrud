@@ -1,0 +1,43 @@
+{% include "layouts/header.html" %}
+    <div class="container mt-3">
+        <div class="d-flex align-center justify-content-between">
+            <h3>{{ title }}</h3>
+            <div class="d-flex align-center">
+                <a class="btn btn-success" href="/books">Список всех книг</a>
+                <a class="btn btn-success" href="/book/create">Создать новую книгу</a>
+            </div>
+        </div>
+        <form action="/book/update/{{ book.id }}" method="POST">
+
+            <div class="mb-3">
+              <label for="isbn" class="form-label">ISBN</label>
+              <input type="text" class="form-control" id="isbn" name="isbn" value="{{ book.isbn }}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Название книги</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{ book.name }}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="author" class="form-label">Имя автора</label>
+              <input type="text" class="form-control" id="author" name="author" value="{{ book.author }}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="pages" class="form-label">Кол-во страниц</label>
+              <input type="text" class="form-control" id="pages" name="pages" value="{{ book.pages }}" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="year" class="form-label">Год создания книги</label>
+              <input type="text" class="form-control" id="year" name="year" value="{{ book.year }}" required>
+            </div>
+
+            <div class="mb-3">
+              <button type="submit" class="btn btn-success">Сохранить</button>
+            </div>
+
+        </form>
+    </div>
+{% include "layouts/footer.html" %}

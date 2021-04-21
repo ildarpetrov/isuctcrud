@@ -1,0 +1,40 @@
+{% include "layouts/header.html" %}
+    <div class="container mt-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <h3>{{ title }}</h3>
+            <a class="btn btn-success" href="/books">Список всех книг</a>
+        </div>
+        <form action="/book/create" method="POST">
+
+            <div class="mb-3">
+              <label for="isbn" class="form-label">ISBN</label>
+              <input type="text" class="form-control" id="isbn" name="isbn" placeholder="892-4324-412" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Название книги</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Война и мир">
+            </div>
+
+            <div class="mb-3">
+              <label for="author" class="form-label">Имя автора</label>
+              <input type="text" class="form-control" id="author" name="author" placeholder="Лев Николаевич Толстой">
+            </div>
+
+            <div class="mb-3">
+              <label for="pages" class="form-label">Кол-во страниц</label>
+              <input type="text" class="form-control" id="pages" name="pages" placeholder="1458">
+            </div>
+
+            <div class="mb-3">
+              <label for="year" class="form-label">Год создания книги</label>
+              <input type="text" class="form-control" id="year" name="year" placeholder="1800">
+            </div>
+
+            <div class="mb-3">
+              <button type="submit" class="btn btn-success">Сохранить</button>
+            </div>
+
+        </form>
+    </div>
+{% include "layouts/footer.html" %}

@@ -1,0 +1,13 @@
+{% include "layouts/header.html" %}
+    <div class="container mt-3">
+        <div class="card w-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ title }}</h5>
+            <p class="card-text">Добро пожаловать в админ панель для создания книг через CRUD.</p>
+            <p class="card-text">Вы можете: </p>
+            <a href="/books" class="btn btn-primary">Посмотреть список всех книг</a>
+            <a href="/book/create" class="btn btn-success">Создать новую снигу</a>
+          </div>
+        </div>
+    </div>
+{% include "layouts/footer.html" %}
